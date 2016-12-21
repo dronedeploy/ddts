@@ -1,0 +1,8 @@
+#!/bin/bash
+if [ -x $0.local ]; then
+    $0.local "$@" || exit $?
+fi
+
+if [ -x $(basename $0) ]; then
+    $(basename $0) "$@" || exit $?
+fi

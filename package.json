@@ -1,0 +1,11 @@
+{
+  "name": "ddts",
+  "version": "0.0.1",
+  "main": "tslint.json",
+  "scripts": {
+    "postinstall": "./install-hooks"
+  },
+  "description": "A typescript style guide with teeth",
+  "author": "Connor Harwood <charwood@dronedeploy.com>",
+  "license": "MIT"
+}
