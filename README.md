@@ -272,3 +272,242 @@ const factorial = (n) => {
 
 [1, 2, 3, 4, 5].map(factorial);
 ```
+
+### [No Bitwise Operations](https://palantir.github.io/tslint/rules/no-bitwise/)
+
+In most cases these are typos (i.e. `foo & bar()` when meaning `foo && bar()`) or overly clever/opaque. If there is a great reason for a bitwise operation, locally overriding the rule is fine.
+
+### [No Conditional Assignments](https://palantir.github.io/tslint/rules/no-conditional-assignment/)
+
+Like bitwise operations, these are often merely typos. If used purposefully, they're harder to notice and therefore a potential for great pain and suffering.
+```ts
+// BAD
+let foo;
+
+if(foo = bar) { // either a typo or someone being sneaky (a.k.a. inducing headaches)
+  ...
+}
+
+
+// GOOD
+const foo = bar;
+
+if(foo) {
+  ...
+}
+// OR
+...
+if(foo === bar) {
+  ...
+}
+```
+
+### [Maximum Two Consecutive Blank Lines](https://palantir.github.io/tslint/rules/no-consecutive-blank-lines/)
+
+Think of one blank line as a comma, two blank lines as a period. Three (or more) blank lines would be an exclamation point (or series of points). Exclamation points are bad.
+>"One should never use exclamation points in writing. It is like laughing at your own joke." -- Mark Twain
+
+### [No Primitive Type Constructors](https://palantir.github.io/tslint/rules/no-construct/)
+
+In almost every case the intention of something like `new Number('0')` or `new Boolean('false')` is to perform a type conversion, not to create a wrapper object.
+```ts
+// BAD
+const condition = new Boolean('false');
+if(condition) {
+  // this will always execute, because 'condition' is
+  // an object (therefore truthy) regardless of content
+  ...
+}
+
+// GOOD
+const condition = Boolean('false');
+if(condition) {
+  ...
+}
+```
+
+### [No Default Exports](https://palantir.github.io/tslint/rules/no-default-export/)
+
+Default exports have a tumultuous history (and present) with transiplation tooling, and naming all exports promotes clarity by disallowing the exporting of anonymous functions.
+```js
+// BAD
+export default function() { ... };
+
+// GOOD
+export const foo = () => { ... };
+```
+
+### [No Eval](https://palantir.github.io/tslint/rules/no-eval/)
+
+Arbitrary code execution is a no-no.
+
+### [Infer Primitive Types](https://palantir.github.io/tslint/rules/no-inferrable-types/)
+
+Explicitly declaring types on constants assigned primitives is needless clutter.
+```js
+// BAD
+const foo:boolean = true;
+
+// GOOD
+const foo = true;
+let bar:number = 0; // since let allows reassignment, type assertion is valid
+const bazz = (buzz:boolean = false) => {
+  // parameters are reassignable, so type assertion is valid (but not required)
+  ...
+};
+```
+
+### [No Magic Numbers](https://palantir.github.io/tslint/rules/no-magic-numbers/)
+
+Forcing numbers to be stored in variables makes them self document. Exempt numbers are -1, 0, 1, and 2 because most of the time their purpose is obvious enough.
+```ts
+// BAD
+for(let i = 0, i < 382; i++) {
+  // Only God knows the significance of 382, because
+  // Barry quit in a fit of rage last month and he
+  // didn't believe in documentation
+  ...
+}
+
+// GOOD
+const userCount = 382;
+for(let i = 0; i < userCount; i++) {
+  ...
+}
+
+// OK
+const duos = userCount / 2;
+
+if(users.indexOf('Jane') === -1) {
+  ...
+}
+```
+
+### [No Require Imports](https://palantir.github.io/tslint/rules/no-require-imports/)
+
+You're using a transpiler that understands ES6 import syntax, so use it.
+```ts
+// BAD
+const foo = require('foo');
+
+// good
+import { foo } from 'foo';
+```
+
+## [No Fall-Through On Switch Statements](https://palantir.github.io/tslint/rules/no-switch-case-fall-through/)
+
+Reasoning about switch statements making use of fall-through cases that aren't empty is hard, and often a case falling through is accidental.
+```ts
+// BAD
+switch(foo) {
+  case a:
+    buzz(foo);
+  case b:
+    fizz(foo);
+}
+// what are the implications of buzz on foo given that
+// fizz could be receiving it next? why is the author
+// making us worry about that? did they even mean for
+// that to be possible? do they hate us?
+
+// GOOD
+switch(foo) {
+  case a:
+    return buzz(foo);
+  case b:
+    return fizz(foo);
+}
+
+// OK
+switch(foo) {
+  case a:  
+  case b:
+    return buzz(foo);
+    // obvious that a and b both trigger the same behavior
+  case c:
+    return fizz(foo);
+}
+```
+
+### [No Trailing Whitespace](https://palantir.github.io/tslint/rules/no-trailing-whitespace/)
+
+Wash your hands after using the bathroom, cover your mouth when you sneaze, and don't commit trailing whitespace for other peoples' text editors to remove bloating everyone's diffs.
+
+### [No Unused Expressions](https://palantir.github.io/tslint/rules/no-unused-expression/)
+
+Unused expressions are most frequently typos.
+```ts
+BAD
+const bar = () => { ... };
+
+bar; // no-op probably meant to be a function invocation
+```
+
+### [No Unused New](https://palantir.github.io/tslint/rules/no-unused-new/)
+
+Constructing an object for its creation side effects is confusing. Refactor the object to make its purpose more explicit.
+```ts
+// BAD
+class Foo {
+  constructor() {
+    this.doSomethingImportant();
+  }
+
+  doSomethingImportant() {
+    ...
+  }
+}
+
+new Foo();
+
+
+// GOOD
+class Foo {
+  doSomethingImportant() {
+    ...
+  }
+}
+
+const bar = new Foo();
+bar.doSomethingImportant();
+```
+
+### [No Var Keyword](https://palantir.github.io/tslint/rules/no-var-keyword/)
+
+Use `let` or `const` for greater clarity.
+
+### [Object Literal Keys In Quotes Only When Necessary](https://palantir.github.io/tslint/rules/object-literal-key-quotes/)
+
+If possible, avoid quotation marks around object literal keys to make them easier to read (less superfluous characters to parse).
+```ts
+// BAD
+const foo = {
+  'bar': true,
+};
+
+// GOOD
+const foo = {
+  bar: true,
+  'fizz-buzz': 3,
+};
+```
+
+### [Use Object Literal Shorthand](https://palantir.github.io/tslint/rules/object-literal-shorthand/)
+
+Reducing clutter by removing duplicatation.
+```ts
+const bar = true;
+const bazz = false;
+
+// BAD
+const foo = {
+  bar: bar,
+  bazz: bazz,
+};
+
+// GOOD
+const foo = {
+  bar,
+  bazz,
+};
+```
