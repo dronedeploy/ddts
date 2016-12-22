@@ -13,10 +13,6 @@
       "check-space"
     ],
     "curly": true,
-    "cyclomatic-complexity": [
-      true,
-      20
-    ],
     "eofline": true,
     "forin": false,
     "indent": [
@@ -32,7 +28,6 @@
       true,
       3
     ],
-    "member-access": true,
     "member-ordering": [
       true,
       {
