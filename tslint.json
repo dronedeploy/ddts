@@ -13,10 +13,6 @@
       "check-space"
     ],
     "curly": true,
-    "cyclomatic-complexity": [
-      true,
-      20
-    ],
     "eofline": true,
     "forin": false,
     "indent": [
@@ -32,7 +28,6 @@
       true,
       3
     ],
-    "member-access": true,
     "member-ordering": [
       true,
       {
@@ -51,30 +46,21 @@
     "no-construct": true,
     "no-debugger": true,
     "no-default-export": true,
-    "no-duplicate-variable": true,
     "no-eval": true,
-    "no-inferrable-types": false,
-    "no-internal-module": true,
+    "no-inferrable-types": [true, "ignore-params"],
     "no-magic-numbers": [
       true,
       -1,
       0,
       1,
-      2,
-      3
-    ],
-    "no-namespace": [
-      true,
-      "allow-declarations"
+      2
     ],
     "no-require-imports": true,
     "no-switch-case-fall-through": true,
     "no-trailing-whitespace": true,
-    "no-unsafe-finally": true,
     "no-unused-expression": true,
     "no-unused-new": true,
     "no-var-keyword": true,
-    "no-var-requires": true,
     "object-literal-key-quotes": [
       true,
       "as-needed"
@@ -102,10 +88,9 @@
     "prefer-for-of": true,
     "quotemark": [
       true,
-      "single",
+      "double",
       "avoid-escape"
     ],
-    "radix": true,
     "switch-default": true,
     "trailing-comma": [
       true,
@@ -119,16 +104,6 @@
       "allow-null-check",
       "allow-undefined-check"
     ],
-    "typedef": [
-      true,
-      "call-signature",
-      "arrow-call-signature",
-      "parameter",
-      "arrow-parameter",
-      "property-declaration",
-      "variable-declaration",
-      "member-variable-declaration"
-    ],
     "use-isnan": true,
     "variable-name": [
       true,
@@ -139,6 +114,7 @@
     "whitespace": [
       true,
       "check-decl",
+      "check-module",
       "check-separator",
       "check-operator"
     ]
