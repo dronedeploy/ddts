@@ -74,10 +74,10 @@ class AccountInfo {
 
 There should be a space between the `//` and the first word.
 ```ts
-//not a GOOD
+//not a pleasant
 //reading experience
 
-// a better
+// a much better
 // reading experience
 ```
 
@@ -173,7 +173,7 @@ for (i = 0; i < 3; i++) {
 Classes deserve their own files (which should be named after them).
 ```ts
 // BAD
-/* in file 'hurdydurr.ts' */
+/* in file 'hurrdy-durr.ts' */
 class Foo {
   ...
 }
@@ -217,24 +217,24 @@ class Alphabet {
   c = true;
   private d = false;
 
-  constructor() { //
-    // ...
+  constructor() {
+    ...
   }
 
   static e() {
-    // ...
+    ...
   }
 
   static private f() {
-    // ...
+    ...
   }
 
   g() {
-    // ...
+    ...
   }
 
   private h() {
-    // ...
+    ...
   }
 }
 ```
@@ -329,12 +329,16 @@ if(condition) {
 ### [No Default Exports](https://palantir.github.io/tslint/rules/no-default-export/)
 
 Default exports have a tumultuous history (and present) with transiplation tooling, and naming all exports promotes clarity by disallowing the exporting of anonymous functions.
-```js
+```ts
 // BAD
-export default function() { ... };
+export default function() {
+  ...
+};
 
 // GOOD
-export const foo = () => { ... };
+export const foo = () => {
+  ...
+};
 ```
 
 ### [No Eval](https://palantir.github.io/tslint/rules/no-eval/)
@@ -344,7 +348,7 @@ Arbitrary code execution is a no-no.
 ### [Infer Primitive Types](https://palantir.github.io/tslint/rules/no-inferrable-types/)
 
 Explicitly declaring types on constants assigned primitives is needless clutter.
-```js
+```ts
 // BAD
 const foo:boolean = true;
 
@@ -438,8 +442,9 @@ Wash your hands after using the bathroom, cover your mouth when you sneaze, and 
 Unused expressions are most frequently typos.
 ```ts
 BAD
-const bar = () => { ... };
-
+const bar = () => {
+  ...
+};
 bar; // no-op probably meant to be a function invocation
 ```
 
@@ -510,4 +515,329 @@ const foo = {
   bar,
   bazz,
 };
+```
+
+### [Sort Object Keys](https://palantir.github.io/tslint/rules/object-literal-sort-keys/)
+
+Sorted objects allow readers to visually binary search for keys, and helps prevent merge conflicts.
+```ts
+// BAD
+const foo = {
+  marbles: 5,
+  'carrot cake': [],
+  xylophone: true,
+  boo: 'ahhhhhhh',
+};
+
+// GOOD
+const foo = {
+  boo: 'ahhhhhhh',
+  'carrot cake': [],
+  marbles: 5,
+  xylophone: true,
+};
+```
+
+### [Block Formatting](https://palantir.github.io/tslint/rules/one-line/)
+The `catch/finally/else` statements should all be on the same line as their preceding and following block braces with a single space separating them. All blocks should be at least three lines.
+```ts
+// BAD
+if( ... ) { ... }
+const foo = () => { return ... };
+[...].map((x) => { return ... });
+// starting/ending block braces on the same line
+
+// GOOD
+if( ... ) {
+  ...
+}
+const foo = () => {
+  return ...
+};
+[...].map((x) => {
+  return ...
+});
+
+// BAD
+if( ... ) {
+  ...
+}
+else // not on the same line as the preceding brace or the following brace
+{ ... }
+
+// BAD
+if( ... ) {
+  ...
+}else{ // no space between braces and 'else'
+   ...
+}
+
+// GOOD
+if( ... ) {
+  ...
+} else {
+  ...
+}
+
+// BAD
+try {
+  ...
+}catch(error){ ... } // starting/ending braces on the same line, no spaces around catch
+finally { // not on the same line as the preceding brace
+  ...
+}
+
+// GOOD
+try {
+  ...
+} catch(error) {
+  ...
+} finally {
+
+}
+```
+
+### [One Assignment Per Declaration Prefix](https://palantir.github.io/tslint/rules/one-variable-per-declaration/)
+
+Reduce diff clutter and avoid easy typos by not chaining assignments. Not enforced in `for` loops.
+```ts
+// BAD
+const a = 5,
+  b = true,
+  c = null;
+// removing 'c' requires changing the above comma to a semicolon. chaining
+// 'd' after 'c' requires updating the semicolon to a comma. both operations
+// pollute the diff and risk an easy typo headache.
+
+// GOOD
+const a = 5;
+const b = true;
+const c = null;
+// delete any of the above or add another anywhere within/around and
+// you'll always have a one line diff with no chance of a comma updating
+// typo.
+
+// OK
+for(let a = 0, b = false, c; ... ; ...) {
+  ...
+}
+```
+
+### [Only Arrow Functions](https://palantir.github.io/tslint/rules/only-arrow-functions/)
+
+Traditional annonymous functions don't bind lexical scope, so their behavior can be unexpected when referencing `this`.
+```ts
+// BAD
+const foo = {
+  bar: function() {
+    return this; // 'this' depends on the context in which 'bar' is called
+  }
+};
+
+// GOOD
+const foo = {
+  bar: () => {
+    return this; 'this' will always be the context in which 'foo' was defined
+  }
+};
+```
+
+### [Group And Alphabetize Imports](https://palantir.github.io/tslint/rules/ordered-imports/)
+
+Within groups (delineated by blank lines) imports should be alphabetized, case-insensitive.
+```ts
+// BAD
+import { ... } from 'foo';
+import { ... } from 'bar';
+import { ... } from 'fizz';
+import { ... } from 'buzz';
+import { ... } from 'aardvark';
+```
+```ts
+// GOOD
+import { ... } from 'aardvark';
+import { ... } from 'bar';
+import { ... } from 'buzz';
+import { ... } from 'fizz';
+import { ... } from 'foo';
+```
+```ts
+// OR
+import { ... } from 'buzz';
+import { ... } from 'fizz';
+
+import { ... } from 'aardvark';
+
+import { ... } from 'bar';
+import { ... } from 'foo';
+```
+
+### [Use Const Whenever Possible]()
+
+Reap the semantic benefits of your declarations; when assigning a name to a value, if that value won't/can't/shouldn't change it should use a `const` declaration, not a `let` declaration.
+```ts
+// BAD
+const half = (value) => {
+  let divisor = 2; // gives the false impression 'divisor' might change
+  return value / divisor;
+};
+
+// GOOD
+const half = (value) => {
+  const divisor = 2;
+  return value / divisor;
+};
+```
+
+### [Prefer `for(... of ...)`](https://palantir.github.io/tslint/rules/prefer-for-of/)
+
+When iterating through an array with a `for` loop, prefer the `for(... of ...)` construction over `for(let i =0; i < length; i++)` unless the index is used for something other than accessing items. `for...of` better conveys intent.
+```ts
+const arr = [...];
+
+// BAD
+for(let i = 0, item; i < arr.length; i++) {
+  item = arr[i];
+  console.log(item);
+}
+
+// GOOD
+for(let item of arr) {
+  console.log(item);
+}
+```
+
+### [Double Quotation Marks For Strings](https://palantir.github.io/tslint/rules/quotemark/)
+
+Consistency is king, and double quotation marks allow the use of a single quotation mark as an apostrophe without escaping.
+
+### [Default Switch Cases](https://palantir.github.io/tslint/rules/switch-default/)
+
+Always include a default case for switch statements either first (preferable) or last, not stuck between other cases.
+```ts
+// BAD
+switch(foo) {
+  case bar:
+    return false;
+  case fizz:
+    return true;
+}
+
+// GOOD
+switch(foo) {
+  default:
+    break;
+  case bar:
+    return false;
+  case fizz:
+    return true;
+}
+```
+
+### [Trailing Commas](https://palantir.github.io/tslint/rules/trailing-comma/)
+
+Always include trailing commas for the last item in multi-line object and array literals. Never for single-line literals. Your diffs will thank you.
+```ts
+// BAD
+const foo = {
+  a: true,
+  b: false
+};
+const merp = [
+  1,
+  2,
+  3
+];
+const bar = ({
+  c,
+  d,
+  e
+}) => {
+  ...
+};
+const ugh = { x: 1, y: 2, };
+const shhh = ({ quiet, time, }) => {
+  ...
+};
+
+// GOOD
+const foo = {
+  a: true,
+  b: false,
+};
+const merp = [
+  1,
+  2,
+  3,
+];
+const bar = ({
+  c,
+  d,
+  e,
+}) => {
+  ...
+};
+const ugh = { x: 1, y: 2 };
+const shhh = ({ quiet, time }) => {
+  ...
+}
+```
+
+### [Triple Equals](https://palantir.github.io/tslint/rules/triple-equals/)
+
+[Implicit type conversion](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness#Loose_equality_using) is not your friend. Strict comparisons are easier to reason about, so be explicit with any conversions you plan to make before comparing.
+```ts
+const foo = '4';
+const bar = 4;
+
+// BAD
+if(foo == bar) {
+  ...
+}
+
+// GOOD
+if(Number(foo) === bar) {
+  ...
+}
+```
+
+### [Use `isNaN`](https://palantir.github.io/tslint/rules/use-isnan/)
+
+`NaN !== NaN`, so comparing to `NaN` doesn't work.
+```ts
+// BAD
+if(foo === NaN) {
+  ...
+}
+
+// GOOD
+if(isNaN(foo)) {
+  ...
+}
+```
+
+### [Camel- And Pascal-Case Variable Names Only](https://palantir.github.io/tslint/rules/variable-name/)
+
+No leading or trailing underscores or keywords (any, Number, number, String, string, Boolean, boolean, undefined) either.
+```ts
+// BAD
+const _pretending_im_private = false;
+
+// GOOD
+const notPretending = true;
+```
+
+### [Breathing Room Is Good](https://palantir.github.io/tslint/rules/whitespace/)
+
+Whitespace between operands, separators, and assignment precedents and antecedents promotes legibility.
+```ts
+// BAD
+const yes = no||maybe&& 2+6;
+const bar = [1,'oh god',3,false];
+const foo=true;
+
+// GOOD
+const yes = no || maybe && 2 + 6;
+const bar = [1, 'oh god', 3, false];
+const foo = true;
 ```

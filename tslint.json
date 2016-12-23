@@ -88,10 +88,9 @@
     "prefer-for-of": true,
     "quotemark": [
       true,
-      "single",
+      "double",
       "avoid-escape"
     ],
-    "radix": true,
     "switch-default": true,
     "trailing-comma": [
       true,
@@ -105,16 +104,6 @@
       "allow-null-check",
       "allow-undefined-check"
     ],
-    "typedef": [
-      true,
-      "call-signature",
-      "arrow-call-signature",
-      "parameter",
-      "arrow-parameter",
-      "property-declaration",
-      "variable-declaration",
-      "member-variable-declaration"
-    ],
     "use-isnan": true,
     "variable-name": [
       true,
@@ -125,6 +114,7 @@
     "whitespace": [
       true,
       "check-decl",
+      "check-module",
       "check-separator",
       "check-operator"
     ]
