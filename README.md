@@ -196,6 +196,7 @@ class Bar {
 ### [Class Member Ordering](https://palantir.github.io/tslint/rules/member-ordering/)
 
 Order the members of a class consistently, for discoverability. Priority rules are:
+
 1. fields
   1. static public
   2. static private
