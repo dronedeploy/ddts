@@ -7,6 +7,10 @@
       "statements"
     ],
     "arrow-parens": true,
+    "ban": [
+      "fdescribe",
+      "fit"
+    ],
     "class-name": true,
     "comment-format": [
       true,

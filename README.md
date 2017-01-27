@@ -49,6 +49,12 @@ const foo = (x) => x*x;
 const lesserThings = things.map((thing) => thing -1);
 ```
 
+### [Banned methods](https://palantir.github.io/tslint/rules/ban/)
+
+- [`fdescribe`/`fit`](https://jasmine.github.io/2.1/focused_specs.html) (focusing blocks/tests silently kills test suites' usefulness)
+
+
+
 ### [Class and Interface Names](https://palantir.github.io/tslint/rules/class-name/)
 
 Class and Interface names should always be pascal-case for ease of identification.
