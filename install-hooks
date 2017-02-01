@@ -1,7 +1,8 @@
 #!/bin/bash
 HOOK_NAMES="applypatch-msg pre-applypatch post-applypatch pre-commit prepare-commit-msg commit-msg post-commit pre-rebase post-checkout post-merge pre-receive update post-receive post-update pre-auto-gc"
-PARENT_HOOKS=$(git rev-parse --show-toplevel)/.git/hooks
-REPLACEMENT_HOOKS=$(pwd)/git-hooks
+PROJECT_ROOT=$(git rev-parse --show-toplevel)
+PARENT_HOOKS=$PROJECT_ROOT/.git/hooks
+REPLACEMENT_HOOKS=$PROJECT_ROOT/node_modules/ddts/git-hooks
 
 for hook in $HOOK_NAMES; do
     if [ -f $REPLACEMENT_HOOKS/$hook ]; then

@@ -3,7 +3,7 @@ if [ -x $0.local ]; then
     $0.local "$@" || exit $?
 fi
 
-HOOK_TO_RUN=$(pwd)/node_modules/ddts/git-hooks/$(basename $0)
+HOOK_TO_RUN=$(git rev-parse --show-toplevel)/node_modules/ddts/git-hooks/$(basename $0)
 
 if [ -x $HOOK_TO_RUN ]; then
     $HOOK_TO_RUN "$@" || exit $?
