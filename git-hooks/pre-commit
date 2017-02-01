@@ -2,7 +2,7 @@
 
 for file in $(git diff --cached --name-only | grep -E '\.ts$')
 do
-    git show ":$file" | tslint "$file"
+    git show ":$file" | $(npm bin)/tslint "$file"
     if [ $? -ne 0 ]; then
         exit 1
     fi
