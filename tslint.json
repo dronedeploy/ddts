@@ -54,7 +54,6 @@
     "no-eval": true,
     "no-inferrable-types": [true, "ignore-params"],
     "no-require-imports": true,
-    "no-switch-case-fall-through": true,
     "no-trailing-whitespace": true,
     "no-unused-expression": true,
     "no-unused-new": true,
