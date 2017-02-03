@@ -379,41 +379,6 @@ const foo = require('foo');
 import { foo } from 'foo';
 ```
 
-## [No Fall-Through On Switch Statements](https://palantir.github.io/tslint/rules/no-switch-case-fall-through/)
-
-Reasoning about switch statements making use of fall-through cases that aren't empty is hard, and often a case falling through is accidental.
-```ts
-// BAD
-switch(foo) {
-  case a:
-    buzz(foo);
-  case b:
-    fizz(foo);
-}
-// what are the implications of buzz on foo given that
-// fizz could be receiving it next? why is the author
-// making us worry about that? did they even mean for
-// that to be possible? do they hate us?
-
-// GOOD
-switch(foo) {
-  case a:
-    return buzz(foo);
-  case b:
-    return fizz(foo);
-}
-
-// OK
-switch(foo) {
-  case a:  
-  case b:
-    return buzz(foo);
-    // obvious that a and b both trigger the same behavior
-  case c:
-    return fizz(foo);
-}
-```
-
 ### [No Trailing Whitespace](https://palantir.github.io/tslint/rules/no-trailing-whitespace/)
 
 Wash your hands after using the bathroom, cover your mouth when you sneaze, and don't commit trailing whitespace for other peoples' text editors to remove bloating everyone's diffs.
@@ -821,4 +786,43 @@ const foo=true;
 const yes = no || maybe && 2 + 6;
 const bar = [1, 'oh god', 3, false];
 const foo = true;
+```
+
+# Unenforced Rules
+
+These are either not `tslint` enforceable (i.e. no rule exists for them) or their rule implementation is buggy but the intent is still desireable.
+
+## [No Fall-Through On Switch Statements](https://palantir.github.io/tslint/rules/no-switch-case-fall-through/) ([buggy implementation](https://github.com/palantir/tslint/issues/785))
+
+Reasoning about switch statements making use of fall-through cases that aren't empty is hard, and often a case falling through is accidental.
+```ts
+// BAD
+switch(foo) {
+  case a:
+    buzz(foo);
+  case b:
+    fizz(foo);
+}
+// what are the implications of buzz on foo given that
+// fizz could be receiving it next? why is the author
+// making us worry about that? did they even mean for
+// that to be possible? do they hate us?
+
+// GOOD
+switch(foo) {
+  case a:
+    return buzz(foo);
+  case b:
+    return fizz(foo);
+}
+
+// OK
+switch(foo) {
+  case a:  
+  case b:
+    return buzz(foo);
+    // obvious that a and b both trigger the same behavior
+  case c:
+    return fizz(foo);
+}
 ```
