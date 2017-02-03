@@ -85,6 +85,7 @@
     ],
     "only-arrow-functions": [
       true,
+      "allow-declarations",
       "allow-named-functions"
     ],
     "ordered-imports": true,
