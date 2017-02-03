@@ -368,32 +368,6 @@ const bazz = (buzz:boolean = false) => {
 };
 ```
 
-### [No Magic Numbers](https://palantir.github.io/tslint/rules/no-magic-numbers/)
-
-Forcing numbers to be stored in variables makes them self document. Exempt numbers are -1, 0, 1, and 2 because most of the time their purpose is obvious enough.
-```ts
-// BAD
-for(let i = 0, i < 382; i++) {
-  // Only God knows the significance of 382, because
-  // Barry quit in a fit of rage last month and he
-  // didn't believe in documentation
-  ...
-}
-
-// GOOD
-const userCount = 382;
-for(let i = 0; i < userCount; i++) {
-  ...
-}
-
-// OK
-const duos = userCount / 2;
-
-if(users.indexOf('Jane') === -1) {
-  ...
-}
-```
-
 ### [No Require Imports](https://palantir.github.io/tslint/rules/no-require-imports/)
 
 You're using a transpiler that understands ES6 import syntax, so use it.
@@ -714,9 +688,9 @@ for(let item of arr) {
 }
 ```
 
-### [Double Quotation Marks For Strings](https://palantir.github.io/tslint/rules/quotemark/)
+### [Single Quotation Marks For Strings](https://palantir.github.io/tslint/rules/quotemark/)
 
-Consistency is king, and double quotation marks allow the use of a single quotation mark as an apostrophe without escaping.
+Consistency is king, and single quotation marks are less clutter.
 
 ### [Default Switch Cases](https://palantir.github.io/tslint/rules/switch-default/)
 
