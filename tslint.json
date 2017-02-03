@@ -8,8 +8,9 @@
     ],
     "arrow-parens": true,
     "ban": [
-      "fdescribe",
-      "fit"
+      true,
+      ["fdescribe"],
+      ["fit"]
     ],
     "class-name": true,
     "comment-format": [
@@ -52,13 +53,6 @@
     "no-default-export": true,
     "no-eval": true,
     "no-inferrable-types": [true, "ignore-params"],
-    "no-magic-numbers": [
-      true,
-      -1,
-      0,
-      1,
-      2
-    ],
     "no-require-imports": true,
     "no-switch-case-fall-through": true,
     "no-trailing-whitespace": true,
@@ -93,7 +87,7 @@
     "prefer-for-of": true,
     "quotemark": [
       true,
-      "double",
+      "single",
       "avoid-escape"
     ],
     "switch-default": true,
