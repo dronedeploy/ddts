@@ -1,6 +1,6 @@
 {
   "name": "ddts",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "main": "tslint.json",
   "scripts": {
     "postinstall": "./install-hooks"
