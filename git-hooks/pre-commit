@@ -7,3 +7,5 @@ do
         exit 1
     fi
 done
+
+$(npm bin)/tsc --noEmit --skipLibCheck
