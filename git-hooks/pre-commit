@@ -7,5 +7,4 @@ do
         exit 1
     fi
 done
-
-$(npm bin)/tsc --noEmit --skipLibCheck
+${BASH_SOURCE%/*}/../node_modules/.bin/ddtsc $(pwd)/tsconfig.json "$(git diff --cached --name-only | grep -E '\.ts$')"
