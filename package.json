@@ -3,9 +3,13 @@
   "version": "0.0.8",
   "main": "tslint.json",
   "scripts": {
-    "postinstall": "./install-hooks"
+    "postinstall": "npm run compilerules; ./install-hooks",
+    "compilerules": "$(git rev-parse --show-toplevel)/node_modules/.bin/tsc ./rules/*.ts || true"
   },
   "description": "A typescript style guide with teeth",
   "author": "Connor Harwood <charwood@dronedeploy.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "peerDependency": {
+    "typescript": "^2.3.4"
+  }
 }
