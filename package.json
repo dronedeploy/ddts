@@ -9,6 +9,9 @@
   "description": "A typescript style guide with teeth",
   "author": "Connor Harwood <charwood@dronedeploy.com>",
   "license": "MIT",
+  "bin": {
+    "ddts-strict-compile": "./strict-compile.sh"
+  },
   "peerDependency": {
     "typescript": "^2.3.4"
   },
