@@ -13,9 +13,7 @@
     "ddts-strict-compile": "./strict-compile.sh"
   },
   "peerDependency": {
-    "typescript": "^2.3.4"
-  },
-  "dependencies": {
+    "typescript": "^2.3.4",
     "dd-strict-tsc": "^1.0.3"
   }
 }
