@@ -2,14 +2,6 @@
 # yarn lockfile v1
 
 
-"@types/node@^7.0.18":
-  version "7.0.22"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.22.tgz#4593f4d828bdd612929478ea40c67b4f403ca255"
-
-"@types/yargs@^6.6.0":
-  version "6.6.0"
-  resolved "https://registry.yarnpkg.com/@types/yargs/-/yargs-6.6.0.tgz#91f8e2580a8083049f78311c059aa57d6949df6b"
-
 ansi-regex@^2.0.0:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/ansi-regex/-/ansi-regex-2.1.1.tgz#c3b33ab5ee360d86e0e628f0468ae7ef27d654df"
@@ -41,13 +33,10 @@ cross-spawn@^4.0.0:
     lru-cache "^4.0.1"
     which "^1.2.9"
 
-dd-strict-tsc@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/dd-strict-tsc/-/dd-strict-tsc-1.0.1.tgz#5fc62766286d304a720cda73d5cf538b068ffc6a"
+dd-strict-tsc@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/dd-strict-tsc/-/dd-strict-tsc-1.0.3.tgz#6dc8a686f6100d5173b2a16805b8396e71bc47e4"
   dependencies:
-    "@types/node" "^7.0.18"
-    "@types/yargs" "^6.6.0"
-    typescript "~2.1.0"
     yargs "^8.0.1"
 
 decamelize@^1.1.1:
@@ -328,10 +317,6 @@ strip-bom@^3.0.0:
 strip-eof@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/strip-eof/-/strip-eof-1.0.0.tgz#bb43ff5598a6eb05d89b59fcd129c983313606bf"
-
-typescript@~2.1.0:
-  version "2.1.6"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.1.6.tgz#40c7e6e9e5da7961b7718b55505f9cac9487a607"
 
 validate-npm-package-license@^3.0.1:
   version "3.0.1"
