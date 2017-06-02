@@ -13,6 +13,6 @@
     "typescript": "^2.3.4"
   },
   "dependencies": {
-    "dd-strict-tsc": "^1.0.0"
+    "dd-strict-tsc": "^1.0.1"
   }
 }
