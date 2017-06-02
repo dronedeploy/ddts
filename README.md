@@ -368,6 +368,34 @@ const bazz = (buzz:boolean = false) => {
 };
 ```
 
+### No Property Mutation
+
+Avoiding property mutation makes debugging easier by limiting side effects.
+```ts
+// BAD
+const foo = {
+  bar: 1,
+  baz: true,
+};
+
+foo.bar = 2;
+
+doSomething(foo);
+
+// GOOD
+const foo = {
+  bar: 1,
+  baz: true,
+}
+
+const updatedFoo = {
+  ...foo,
+  bar: 2,
+};
+
+doSomething(updatedFoo);
+```
+
 ### [No Require Imports](https://palantir.github.io/tslint/rules/no-require-imports/)
 
 You're using a transpiler that understands ES6 import syntax, so use it.
