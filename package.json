@@ -11,5 +11,8 @@
   "license": "MIT",
   "peerDependency": {
     "typescript": "^2.3.4"
+  },
+  "dependencies": {
+    "dd-strict-tsc": "^1.0.3"
   }
 }
