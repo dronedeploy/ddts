@@ -1,6 +1,6 @@
 {
   "name": "ddts",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "tslint.json",
   "scripts": {
     "postinstall": "npm run compilerules; ./install-hooks",
