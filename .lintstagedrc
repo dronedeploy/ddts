@@ -1,0 +1,7 @@
+{
+  "*.ts": [
+    "prettier --write --config ./node_modules/ddts/.prettierrc.yml",
+    "git add",
+    "tslint"
+  ]
+}

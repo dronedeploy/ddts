@@ -1,6 +1,6 @@
 {
   "name": "ddts",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "main": "tslint.json",
   "scripts": {
     "postinstall": "npm run compilerules; ./install-hooks",
@@ -20,6 +20,8 @@
   "peerDependencies": {
     "dd-strict-tsc": "^1.0.3",
     "tslint": "^4.4.2",
-    "typescript": "^2.3.4"
+    "typescript": "^2.3.4",
+    "lint-staged": "^7.2.0",
+    "prettier": "^1.13.7"
   }
 }
