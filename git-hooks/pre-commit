@@ -1,4 +1,3 @@
 #!/bin/bash
 
 $(npm bin)/lint-staged -c ./node_modules/ddts/.lintstagedrc || exit 1
-$(npm bin)/ddts-strict-compile
