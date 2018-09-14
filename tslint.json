@@ -1,7 +1,4 @@
 {
-  "rulesDirectory": [
-    "./rules/"
-  ],
   "rules": {
     "align": [
       true,
