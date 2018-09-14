@@ -3,7 +3,6 @@
     "prettier --write --config ./node_modules/ddts/.prettierrc.yml",
     "git add",
     "tslint --fix",
-    "git add",
-    "ddts-strict-compile"
+    "git add"
   ]
 }
