@@ -11,7 +11,7 @@
   "license": "MIT",
   "devDependencies": {
     "tslint": "^4.4.2",
-    "typescript": "^2.3.4"
+    "typescript": "3.2.4"
   },
   "peerDependencies": {
     "lint-staged": "^7.2.0",
