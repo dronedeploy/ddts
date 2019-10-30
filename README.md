@@ -422,35 +422,6 @@ const bar = () => {
 bar; // no-op probably meant to be a function invocation
 ```
 
-### [No Unused New](https://palantir.github.io/tslint/rules/no-unused-new/)
-
-Constructing an object for its creation side effects is confusing. Refactor the object to make its purpose more explicit.
-```ts
-// BAD
-class Foo {
-  constructor() {
-    this.doSomethingImportant();
-  }
-
-  doSomethingImportant() {
-    ...
-  }
-}
-
-new Foo();
-
-
-// GOOD
-class Foo {
-  doSomethingImportant() {
-    ...
-  }
-}
-
-const bar = new Foo();
-bar.doSomethingImportant();
-```
-
 ### [No Var Keyword](https://palantir.github.io/tslint/rules/no-var-keyword/)
 
 Use `let` or `const` for greater clarity.
