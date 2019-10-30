@@ -1,6 +1,6 @@
 {
   "name": "ddts",
-  "version": "0.2.1",
+  "version": "0.7.0",
   "main": "tslint.json",
   "scripts": {
     "postinstall": "npm run compilerules; ./install-hooks",
@@ -9,17 +9,13 @@
   "description": "A typescript style guide with teeth",
   "author": "Connor Harwood <charwood@dronedeploy.com>",
   "license": "MIT",
-  "bin": {
-    "ddts-strict-compile": "./strict-compile.sh"
-  },
   "devDependencies": {
-    "dd-strict-tsc": "^1.0.3",
-    "tslint": "^4.4.2",
-    "typescript": "^2.3.4"
+    "tslint": "^4.4.2"
   },
   "peerDependencies": {
-    "dd-strict-tsc": "^1.0.3",
+    "lint-staged": "^7.2.0",
+    "prettier": "^1.13.7",
     "tslint": "^4.4.2",
-    "typescript": "^2.3.4"
+    "typescript": "3.2.4"
   }
 }

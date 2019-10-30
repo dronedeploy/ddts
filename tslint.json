@@ -1,7 +1,4 @@
 {
-  "rulesDirectory": [
-    "./rules/"
-  ],
   "rules": {
     "align": [
       true,
@@ -56,7 +53,6 @@
     "no-default-export": true,
     "no-eval": true,
     "no-inferrable-types": [true, "ignore-params"],
-    "no-property-mutation": true,
     "no-require-imports": true,
     "no-trailing-whitespace": true,
     "no-unused-expression": true,
@@ -96,6 +92,7 @@
     "trailing-comma": [
       true,
       {
+        "esSpecCompliant": true,
         "multiline": "always",
         "singleline": "never"
       }
