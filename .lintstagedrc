@@ -2,7 +2,7 @@
   "*.ts": [
     "prettier --write --config ./node_modules/ddts/.prettierrc.yml",
     "git add",
-    "tslint --fix",
+    "tslint --fix --project tsconfig.json",
     "git add"
   ],
   "*.scss": [
