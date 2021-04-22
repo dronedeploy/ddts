@@ -4,7 +4,7 @@
     "git add",
     "tslint --fix",
     "git add",
-    "sh ./node_modules/ddts/scripts/util-check.sh"
+    "sh ./node_modules/ddts/scripts/index.sh"
   ],
   "*.scss": [
     "prettier --write --config ./node_modules/ddts/.prettierrc-scss.yml",
