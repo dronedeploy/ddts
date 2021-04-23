@@ -8,6 +8,7 @@ changed_files=$@
 invalid_files=()
 
 yellow="\033[0;33m"
+green="\033[0;32m"
 no_color="\033[0m"
 
 function check_for_banned_name() {
@@ -29,7 +30,7 @@ done
 
 if [ ${#invalid_files[@]} -ne 0 ]
 then   
-    printf "\nUtility classes should end with \"$accepted_util_extension\"\n\n"
+    printf "\nUtility files should end with $green\"$accepted_util_extension\"$no_color\n\n"
     printf "Files to rename:\n================\n"
     for invalid_file in ${invalid_files}
     do
