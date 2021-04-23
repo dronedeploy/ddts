@@ -5,7 +5,7 @@
 accepted_util_extension="-utils.ts"
 banned_util_extensions=("-util.ts" ".util.ts" ".utils.ts" ".utility.ts" "-utility.ts" ".utilities.ts" "-utilities.ts")
 changed_files=$@
-invalid_files=()
+invalid_files=""
 
 yellow="\033[0;33m"
 green="\033[0;32m"
@@ -18,7 +18,7 @@ function check_for_banned_name() {
         banned_util_extension=$i
         if [[ $changed_file == *$banned_util_extension ]]
         then
-            invalid_files=(${arrVar1[@]} $changed_file)
+            invalid_files="$invalid_files $changed_file"
         fi
     done
 }
