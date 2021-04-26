@@ -28,7 +28,9 @@ do
   check_for_banned_name $changed_file
 done
 
-if [ ${#invalid_files[@]} -ne 0 ]
+invalid_files_count=${#invalid_files}
+
+if [ $invalid_files_count -ne 0 ]
 then   
     printf "\nUtility files should end with $green\"$accepted_util_extension\"$no_color\n\n"
     printf "Files to rename:\n================\n"
