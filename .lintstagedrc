@@ -3,7 +3,8 @@
     "prettier --write --config ./node_modules/ddts/.prettierrc.yml",
     "git add",
     "tslint --fix",
-    "git add"
+    "git add",
+    "sh ./node_modules/ddts/scripts/index.sh"
   ],
   "*.scss": [
     "prettier --write --config ./node_modules/ddts/.prettierrc-scss.yml",
