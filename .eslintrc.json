@@ -1,0 +1,165 @@
+{
+    "plugins": [
+        "eslint-plugin-import",
+        "eslint-plugin-prefer-arrow",
+        "@typescript-eslint",
+        "@typescript-eslint/tslint"
+    ],
+    "rules": {
+        "@typescript-eslint/member-ordering": [
+            "error",
+            {
+                "default": ["field", "constructor", "method"]
+            }
+        ],
+        "@typescript-eslint/naming-convention": [
+            "error",
+            {
+                "selector": "variable",
+                "format": [
+                    "camelCase", "UPPER_CASE", "PascalCase"
+                ]
+            },
+            {
+                "selector": "property",
+                "format": ["camelCase", "UPPER_CASE", "PascalCase", "snake_case"]
+            }
+        ],
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-inferrable-types": [
+            "error",
+            {
+                "ignoreParameters": true
+            }
+        ],
+        "@typescript-eslint/no-require-imports": "error",
+        "@typescript-eslint/no-unused-expressions": "error",
+        "@typescript-eslint/prefer-for-of": "error",
+        "@typescript-eslint/quotes": [
+            "error",
+            "single",
+            {
+                "avoidEscape": true
+            }
+        ],
+        "arrow-parens": [
+            "error",
+            "always"
+        ],
+        "brace-style": [
+            "error",
+            "1tbs"
+        ],
+        "comma-dangle": [
+            "error",
+            "always-multiline"
+        ],
+        "curly": "error",
+        "default-case": "error",
+        "eol-last": "error",
+        "eqeqeq": [
+            "error",
+            "smart"
+        ],
+        "guard-for-in": "off",
+        "id-denylist": [
+            "error",
+            "any",
+            "Number",
+            "number",
+            "String",
+            "string",
+            "Boolean",
+            "boolean",
+            "Undefined",
+            "undefined"
+        ],
+        "id-match": "error",
+        "import/no-default-export": "error",
+        "import/order": "error",
+        "indent": [
+            "error",
+            2,
+            {
+                "CallExpression": {
+                    "arguments": "first"
+                },
+                "FunctionDeclaration": {
+                    "parameters": "first"
+                },
+                "FunctionExpression": {
+                    "parameters": "first"
+                },
+                "SwitchCase": 1
+            }
+        ],
+        "max-classes-per-file": [
+            "error",
+            3
+        ],
+        "new-parens": "error",
+        "no-bitwise": "error",
+        "no-caller": "error",
+        "no-cond-assign": "error",
+        "no-debugger": "error",
+        "no-eval": "error",
+        "no-multiple-empty-lines": [
+            "error",
+            {
+                "max": 3
+            }
+        ],
+        "no-new-wrappers": "error",
+        "no-trailing-spaces": "error",
+        "no-underscore-dangle": "off",
+        "no-unused-expressions": "error",
+        "no-unused-labels": "error",
+        "no-var": "error",
+        "object-shorthand": "error",
+        "one-var": [
+            "error",
+            "never"
+        ],
+        "prefer-arrow/prefer-arrow-functions": "error",
+        "prefer-const": "error",
+        "quote-props": [
+            "error",
+            "as-needed"
+        ],
+        "quotes": "error",
+        "spaced-comment": [
+            "error",
+            "always",
+            {
+                "markers": [
+                    "/"
+                ]
+            }
+        ],
+        "use-isnan": "error",
+        "@typescript-eslint/tslint/config": [
+            "error",
+            {
+                "rules": {
+                    "ban": [
+                        true,
+                        [
+                            "fdescribe"
+                        ],
+                        [
+                            "fit"
+                        ]
+                    ],
+                    "object-literal-sort-keys": true,
+                    "whitespace": [
+                        true,
+                        "check-decl",
+                        "check-module",
+                        "check-separator",
+                        "check-operator"
+                    ]
+                }
+            }
+        ]
+    }
+}

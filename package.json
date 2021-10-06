@@ -3,19 +3,21 @@
   "version": "1.4.0",
   "main": "tslint.json",
   "scripts": {
-    "postinstall": "npm run compilerules; ./install-hooks",
-    "compilerules": "$(git rev-parse --show-toplevel)/node_modules/.bin/tsc ./rules/*.ts || true"
+    "postinstall": "./install-hooks"
   },
   "description": "A typescript style guide with teeth",
   "author": "Connor Harwood <charwood@dronedeploy.com>",
   "license": "MIT",
   "devDependencies": {
-    "tslint": "^5.12.1"
+    "@typescript-eslint/eslint-plugin-tslint": "^4.33.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-prefer-arrow": "^1.2.3"
   },
   "peerDependencies": {
     "lint-staged": "^7.2.0",
     "prettier": "^1.19.1",
-    "tslint": "^5.12.1",
+    "eslint": "^7.32.0",
     "typescript": ">=3.3.x <=4.0.x "
   }
 }
