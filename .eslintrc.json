@@ -1,29 +1,31 @@
 {
-  "parser": "@typescript-eslint/parser",
   "plugins": [
     "eslint-plugin-import",
     "eslint-plugin-prefer-arrow",
     "@typescript-eslint",
-    "@typescript-eslint/tslint"
+    "ban"
   ],
   "rules": {
-    "@typescript-eslint/indent": [
+    "@typescript-eslint/member-ordering": [
       "error",
-      4,
       {
-        "CallExpression": {
-          "arguments": "first"
-        },
-        "FunctionDeclaration": {
-          "parameters": "first"
-        },
-        "FunctionExpression": {
-          "parameters": "first"
-        }
+        "default": ["field", "constructor", "method"]
       }
     ],
-    "@typescript-eslint/member-ordering": "error",
-    "@typescript-eslint/naming-convention": "error",
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "variable",
+        "format": [
+          "camelCase", "UPPER_CASE", "PascalCase"
+        ]
+      },
+      {
+        "selector": "property",
+        "format": ["camelCase", "UPPER_CASE", "PascalCase", "snake_case"],
+        "leadingUnderscore": "allow"
+      }
+    ],
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-inferrable-types": [
       "error",
@@ -76,7 +78,22 @@
     "id-match": "error",
     "import/no-default-export": "error",
     "import/order": "error",
-    "indent": "error",
+    "indent": [
+      "error",
+      2,
+      {
+        "CallExpression": {
+          "arguments": "first"
+        },
+        "FunctionDeclaration": {
+          "parameters": "first"
+        },
+        "FunctionExpression": {
+          "parameters": "first"
+        },
+        "SwitchCase": 1
+      }
+    ],
     "max-classes-per-file": [
       "error",
       3
@@ -95,7 +112,7 @@
     ],
     "no-new-wrappers": "error",
     "no-trailing-spaces": "error",
-    "no-underscore-dangle": "error",
+    "no-underscore-dangle": "off",
     "no-unused-expressions": "error",
     "no-unused-labels": "error",
     "no-var": "error",
@@ -104,13 +121,17 @@
       "error",
       "never"
     ],
-    "prefer-arrow/prefer-arrow-functions": "error",
+    "prefer-arrow/prefer-arrow-functions": ["error", {
+      "allowStandaloneDeclarations": true
+    }],
     "prefer-const": "error",
     "quote-props": [
       "error",
       "as-needed"
     ],
-    "quotes": "error",
+    "quotes": ["error", "single", {
+      "avoidEscape": true
+    }],
     "spaced-comment": [
       "error",
       "always",
@@ -120,30 +141,12 @@
         ]
       }
     ],
+    "sort-keys": "error",
     "use-isnan": "error",
-    "@typescript-eslint/tslint/config": [
+    "ban/ban": [
       "error",
-      {
-        "rules": {
-          "ban": [
-            true,
-            [
-              "fdescribe"
-            ],
-            [
-              "fit"
-            ]
-          ],
-          "object-literal-sort-keys": true,
-          "whitespace": [
-            true,
-            "check-decl",
-            "check-module",
-            "check-separator",
-            "check-operator"
-          ]
-        }
-      }
+      { "name": "fdescribe", "message": "Banned method" },
+      { "name": "fit", "message": "Banned method" }
     ]
   }
 }

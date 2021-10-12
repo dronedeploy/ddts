@@ -9,18 +9,17 @@
   "author": "Connor Harwood <charwood@dronedeploy.com>",
   "license": "MIT",
   "devDependencies": {
-    "tslint-to-eslint-config": "^2.10.0",
-    "eslint": "^7.32.0",
     "@typescript-eslint/eslint-plugin": "4.3.0",
-    "@typescript-eslint/eslint-plugin-tslint": "^4.33.0",
     "@typescript-eslint/parser": "4.3.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-ban": "^1.5.2",
     "eslint-plugin-import": "2.22.1",
     "eslint-plugin-prefer-arrow": "1.2.2"
   },
   "peerDependencies": {
+    "eslint": "^7.6.0",
     "lint-staged": "^11.2.3",
     "prettier": "^2.4.1",
-    "typescript": ">=3.3.x <=4.0.x ",
-    "eslint": "^7.6.0"
+    "typescript": ">=3.3.x <=4.0.x "
   }
 }
