@@ -21,6 +21,18 @@
         ]
       },
       {
+        "selector": "class",
+        "format": ["PascalCase"]
+      },
+      {
+        "selector": "interface",
+        "format": ["PascalCase"],
+        "custom": {
+          "regex": "^I[A-Z]",
+          "match": false
+        }
+      },
+      {
         "selector": "property",
         "format": ["camelCase", "UPPER_CASE", "PascalCase", "snake_case"],
         "leadingUnderscore": "allow"
@@ -46,6 +58,11 @@
     "arrow-parens": [
       "error",
       "always"
+    ],
+    "ban/ban": [
+      "error",
+      { "name": "fdescribe", "message": "Banned method" },
+      { "name": "fit", "message": "Banned method" }
     ],
     "brace-style": [
       "error",
@@ -78,7 +95,8 @@
     "id-match": "error",
     "import/no-default-export": "error",
     "import/order": "error",
-    "indent": [
+    "indent": "off",
+    "@typescript-eslint/indent": [
       "error",
       2,
       {
@@ -142,11 +160,6 @@
       }
     ],
     "sort-keys": "error",
-    "use-isnan": "error",
-    "ban/ban": [
-      "error",
-      { "name": "fdescribe", "message": "Banned method" },
-      { "name": "fit", "message": "Banned method" }
-    ]
+    "use-isnan": "error"
   }
 }
