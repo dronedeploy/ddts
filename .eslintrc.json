@@ -124,6 +124,7 @@
         "max": 3
       }
     ],
+    "no-multi-spaces": "error",
     "no-new-wrappers": "error",
     "no-trailing-spaces": "error",
     "no-underscore-dangle": "off",
@@ -146,6 +147,7 @@
     "quotes": ["error", "single", {
       "avoidEscape": true
     }],
+    "space-infix-ops": "error",
     "spaced-comment": [
       "error",
       "always",
