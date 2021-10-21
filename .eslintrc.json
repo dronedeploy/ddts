@@ -97,13 +97,13 @@
       2,
       {
         "CallExpression": {
-          "arguments": "first"
+          "arguments": 1
         },
         "FunctionDeclaration": {
-          "parameters": "first"
+          "parameters": 1
         },
         "FunctionExpression": {
-          "parameters": "first"
+          "parameters": 1
         },
         "SwitchCase": 1
       }
