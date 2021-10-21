@@ -75,10 +75,7 @@
     "curly": "error",
     "default-case": "error",
     "eol-last": "error",
-    "eqeqeq": [
-      "error",
-      "smart"
-    ],
+    "eqeqeq": "error",
     "guard-for-in": "off",
     "id-denylist": [
       "error",
@@ -153,9 +150,7 @@
       "error",
       "always",
       {
-        "markers": [
-          "/"
-        ]
+        "exceptions": ["*"]
       }
     ],
     "sort-keys": "error",
