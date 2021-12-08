@@ -155,7 +155,7 @@
         "exceptions": ["*"]
       }
     ],
-    "sort-keys": "error",
+    "sort-keys": "off",
     "use-isnan": "error"
   }
 }
