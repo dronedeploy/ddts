@@ -5,6 +5,7 @@
     "@typescript-eslint",
     "ban"
   ],
+  "extends": ["prettier"],
   "rules": {
     "@typescript-eslint/member-ordering": [
       "error",
