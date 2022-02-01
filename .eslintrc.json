@@ -92,23 +92,6 @@
     "id-match": "error",
     "import/no-default-export": "error",
     "import/order": "error",
-    "indent": "off",
-    "@typescript-eslint/indent": [
-      "error",
-      2,
-      {
-        "CallExpression": {
-          "arguments": 1
-        },
-        "FunctionDeclaration": {
-          "parameters": 1
-        },
-        "FunctionExpression": {
-          "parameters": 1
-        },
-        "SwitchCase": 1
-      }
-    ],
     "max-classes-per-file": [
       "error",
       3
@@ -140,6 +123,10 @@
     "prefer-arrow/prefer-arrow-functions": ["error", {
       "allowStandaloneDeclarations": true
     }],
+    "prefer-arrow-callback": [
+      "error",
+      { "allowNamedFunctions": true }
+    ],
     "prefer-const": "error",
     "quote-props": [
       "error",
