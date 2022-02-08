@@ -125,7 +125,9 @@
     }],
     "prefer-arrow-callback": [
       "error",
-      { "allowNamedFunctions": true }
+      {
+        "allowNamedFunctions": true
+      }
     ],
     "prefer-const": "error",
     "quote-props": [
