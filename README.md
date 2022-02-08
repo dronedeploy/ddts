@@ -4,8 +4,7 @@ A style guide for writing better typescript, enforced via eslint pre-commit hook
 
 ## Enforced Rules
 
-### ~~Alignment~~ (https://palantir.github.io/tslint/rules/align/)
-(NO RULE IN ESLINT - PRETTIER MAYBE?)
+### Alignment - Prettier
 
 Function parameters and arguments should be on the same line until they surpass the max line length(80), at which point they should be aligned vertically each on their own line.
 ```ts
@@ -775,8 +774,7 @@ if(isNaN(foo)) {
 }
 ```
 
-### ~~Breathing Room Is Good~~ (https://palantir.github.io/tslint/rules/whitespace/)
-(NEED TO USE PRETTIER FOR THIS)
+### Breathing Room Is Good - Prettier
 
 Whitespace between operands, separators, and assignment precedents and antecedents promotes legibility.
 ```ts
