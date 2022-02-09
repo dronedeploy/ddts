@@ -49,29 +49,15 @@
     "@typescript-eslint/no-require-imports": "error",
     "@typescript-eslint/no-unused-expressions": "error",
     "@typescript-eslint/prefer-for-of": "error",
-    "@typescript-eslint/quotes": [
-      "error",
-      "single",
-      {
-        "avoidEscape": true
-      }
-    ],
-    "arrow-parens": [
-      "error",
-      "always"
-    ],
     "ban/ban": [
       "error",
       { "name": "fdescribe", "message": "Banned method" },
-      { "name": "fit", "message": "Banned method" }
+      { "name": "fit", "message": "Banned method" },
+      { "name": "test.only", "message": "Banned method" }
     ],
     "brace-style": [
       "error",
       "1tbs"
-    ],
-    "comma-dangle": [
-      "error",
-      "always-multiline"
     ],
     "curly": "error",
     "default-case": "error",
@@ -134,9 +120,6 @@
       "error",
       "as-needed"
     ],
-    "quotes": ["error", "single", {
-      "avoidEscape": true
-    }],
     "space-infix-ops": "error",
     "spaced-comment": [
       "error",
