@@ -53,7 +53,10 @@
       "error",
       { "name": "fdescribe", "message": "Banned method" },
       { "name": "fit", "message": "Banned method" },
-      { "name": "test.only", "message": "Banned method" }
+      { "name": ["test","only"], "message": "Banned method" },
+      { "name": ["it","only"], "message": "Banned method" },
+      { "name": ["describe","only"], "message": "Banned method" },
+      { "name": "logOut", "message": "Banned method" }
     ],
     "brace-style": [
       "error",
