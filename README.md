@@ -36,7 +36,7 @@ const foo = (
 };
 ```
 
-### [Arrow Function Parentheses](https://eslint.org/docs/rules/arrow-parens)
+### Arrow Function Parentheses - [Prettier](https://prettier.io/docs/en/options.html#arrow-function-parentheses)
 
 Always use parentheses around arrow function parameters, for consistency.
 ```ts
@@ -665,7 +665,7 @@ for(let item of arr) {
 }
 ```
 
-### [Single Quotation Marks For Strings](https://eslint.org/docs/rules/quotes)
+### Single Quotation Marks For Strings - [Prettier](https://prettier.io/docs/en/options.html#quotes)
 
 Consistency is king, and single quotation marks are less clutter.
 
@@ -692,7 +692,7 @@ switch(foo) {
 }
 ```
 
-### [Trailing Comma (Comma dangle)](https://eslint.org/docs/rules/comma-dangle)
+### Trailing Comma (Comma dangle) - [Prettier](https://prettier.io/docs/en/options.html#trailing-commas)
 
 Always include trailing commas for the last item in multi-line object and array literals. Never for single-line literals. Your diffs will thank you.
 ```ts
@@ -774,7 +774,7 @@ if(isNaN(foo)) {
 }
 ```
 
-### Breathing Room Is Good - Prettier
+### Breathing Room Is Good - [Prettier](https://prettier.io/docs/en/options.html#bracket-spacing)
 
 Whitespace between operands, separators, and assignment precedents and antecedents promotes legibility.
 ```ts
