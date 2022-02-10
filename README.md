@@ -1,10 +1,10 @@
 # ddts
 
-A style guide for writing better typescript, enforced via tslint pre-commit hook.
+A style guide for writing better typescript, enforced via eslint pre-commit hook.
 
 ## Enforced Rules
 
-### [Alignment](https://palantir.github.io/tslint/rules/align/)
+### Alignment - Prettier
 
 Function parameters and arguments should be on the same line until they surpass the max line length(80), at which point they should be aligned vertically each on their own line.
 ```ts
@@ -36,7 +36,7 @@ const foo = (
 };
 ```
 
-### [Arrow Function Parentheses](https://palantir.github.io/tslint/rules/arrow-parens/)
+### Arrow Function Parentheses - [Prettier](https://prettier.io/docs/en/options.html#arrow-function-parentheses)
 
 Always use parentheses around arrow function parameters, for consistency.
 ```ts
@@ -49,13 +49,13 @@ const foo = (x) => x*x;
 const lesserThings = things.map((thing) => thing -1);
 ```
 
-### [Banned methods](https://palantir.github.io/tslint/rules/ban/)
+### [Banned methods](https://github.com/remithomas/eslint-plugin-ban/blob/master/docs/rules/ban.md)
 
 - [`fdescribe`/`fit`](https://jasmine.github.io/2.1/focused_specs.html) (focusing blocks/tests silently kills test suites' usefulness)
 
 
-
-### [Class and Interface Names](https://palantir.github.io/tslint/rules/class-name/)
+### [Naming Convention](https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/naming-convention.md)
+### *Class and Interface Names*
 
 Class and Interface names should always be pascal-case for ease of identification.
 ```ts
@@ -76,7 +76,18 @@ class AccountInfo {
 }
 ```
 
-### [Single-line Comments](https://palantir.github.io/tslint/rules/comment-format/)
+### *Camel- And Pascal-Case Variable Names Only*
+
+No leading or trailing underscores or keywords (any, Number, number, String, string, Boolean, boolean, undefined) either.
+```ts
+// BAD
+const _pretending_im_private = false;
+
+// GOOD
+const notPretending = true;
+```
+
+### [Single-line Comments](https://eslint.org/docs/rules/spaced-comment)
 
 There should be a space between the `//` and the first word.
 ```ts
@@ -87,7 +98,7 @@ There should be a space between the `//` and the first word.
 // reading experience
 ```
 
-### [Conditional Curly Braces](https://palantir.github.io/tslint/rules/curly/)
+### [Conditional Curly Braces](https://eslint.org/docs/rules/curly)
 
 Curly braces should always be used for `if/for/do/while` statements for clarity on what is included in the statement.
 ```ts
@@ -121,15 +132,15 @@ if(foo) {
 }
 ```
 
-### [End of File Newline](https://palantir.github.io/tslint/rules/eofline/)
+### [End of File Newline](https://eslint.org/docs/rules/eol-last)
 
 End every file with a newline character, because otherwise it's [not a line](http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_206).
 
-### [Indent With Spaces](https://palantir.github.io/tslint/rules/indent/)
+### [Indent With Spaces](https://eslint.org/docs/rules/indent#enforce-consistent-indentation-indent)
 
 Mixing tabs and spaces is insanity, and spaces are interpreted the same universally whereas tabs are not.
 
-### [Interface Name Prefixing](https://palantir.github.io/tslint/rules/interface-name/)
+### [Interface Name Prefixing](https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/naming-convention.md#enforce-that-interface-names-do-not-begin-with-an-i)
 
 Why mangle names to save time in differentiating an interface from a class when it's an arguably superfluous distinction in many cases.
 ```ts
@@ -144,7 +155,7 @@ interface Illusion {
 }
 ```
 
-### [Labels](https://palantir.github.io/tslint/rules/label-position/)
+### [Labels](https://eslint.org/docs/rules/no-unused-labels)
 
 Labels only belong in `do/for/while/switch` statements, if at all.
 ```ts
@@ -174,7 +185,7 @@ for (i = 0; i < 3; i++) {
 }
 ```
 
-### [One Class Per File](https://palantir.github.io/tslint/rules/max-classes-per-file/)
+### [One Class Per File](https://eslint.org/docs/rules/max-classes-per-file)
 
 Classes deserve their own files (which should be named after them).
 ```ts
@@ -199,7 +210,7 @@ class Bar {
   ...
 }
 ```
-### [Class Member Ordering](https://palantir.github.io/tslint/rules/member-ordering/)
+### [Class Member Ordering](https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/member-ordering.md)
 
 Order the members of a class consistently, for discoverability. Priority rules are:
 
@@ -246,7 +257,7 @@ class Alphabet {
 }
 ```
 
-### [New Parentheses](https://palantir.github.io/tslint/rules/new-parens/)
+### [New Parentheses](https://eslint.org/docs/rules/new-parens)
 
 Use parentheses when invoking a constructor function with `new` for consistency with other function calls.
 ```ts
@@ -263,7 +274,7 @@ const bad = new Foo;
 const good = new Foo();
 ```
 
-### [No `arguments.callee` References](https://palantir.github.io/tslint/rules/no-arg/)
+### [No `arguments.callee` References](https://eslint.org/docs/rules/no-caller)
 
 Using `arguments.callee` makes various performance optimizations impossible.
 ```ts
@@ -280,11 +291,11 @@ const factorial = (n) => {
 [1, 2, 3, 4, 5].map(factorial);
 ```
 
-### [No Bitwise Operations](https://palantir.github.io/tslint/rules/no-bitwise/)
+### [No Bitwise Operations](https://eslint.org/docs/rules/no-bitwise)
 
 In most cases these are typos (i.e. `foo & bar()` when meaning `foo && bar()`) or overly clever/opaque. If there is a great reason for a bitwise operation, locally overriding the rule is fine.
 
-### [No Conditional Assignments](https://palantir.github.io/tslint/rules/no-conditional-assignment/)
+### [No Conditional Assignments](https://eslint.org/docs/rules/no-cond-assign)
 
 Like bitwise operations, these are often merely typos. If used purposefully, they're harder to notice and therefore a potential for great pain and suffering.
 ```ts
@@ -309,12 +320,12 @@ if(foo === bar) {
 }
 ```
 
-### [Maximum Two Consecutive Blank Lines](https://palantir.github.io/tslint/rules/no-consecutive-blank-lines/)
+### [Maximum Two Consecutive Blank Lines](https://eslint.org/docs/rules/no-multiple-empty-lines)
 
 Think of one blank line as a comma, two blank lines as a period. Three (or more) blank lines would be an exclamation point (or series of points). Exclamation points are bad.
 >"One should never use exclamation points in writing. It is like laughing at your own joke." -- Mark Twain
 
-### [No Primitive Type Constructors](https://palantir.github.io/tslint/rules/no-construct/)
+### [No Primitive Type Constructors](https://eslint.org/docs/rules/no-new-wrappers)
 
 In almost every case the intention of something like `new Number('0')` or `new Boolean('false')` is to perform a type conversion, not to create a wrapper object.
 ```ts
@@ -333,7 +344,7 @@ if(condition) {
 }
 ```
 
-### [No Default Exports](https://palantir.github.io/tslint/rules/no-default-export/)
+### [No Default Exports](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-default-export.md)
 
 Default exports have a tumultuous history (and present) with transiplation tooling, and naming all exports promotes clarity by disallowing the exporting of anonymous functions.
 ```ts
@@ -348,11 +359,11 @@ export const foo = () => {
 };
 ```
 
-### [No Eval](https://palantir.github.io/tslint/rules/no-eval/)
+### [No Eval](https://eslint.org/docs/rules/no-eval)
 
 Arbitrary code execution is a no-no.
 
-### [Infer Primitive Types](https://palantir.github.io/tslint/rules/no-inferrable-types/)
+### [Infer Primitive Types](https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-inferrable-types.md)
 
 Explicitly declaring types on constants assigned primitives is needless clutter.
 ```ts
@@ -396,7 +407,7 @@ const updatedFoo = {
 doSomething(updatedFoo);
 ```
 
-### [No Require Imports](https://palantir.github.io/tslint/rules/no-require-imports/)
+### [No Require Imports](https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-require-imports.md)
 
 You're using a transpiler that understands ES6 import syntax, so use it.
 ```ts
@@ -407,11 +418,11 @@ const foo = require('foo');
 import { foo } from 'foo';
 ```
 
-### [No Trailing Whitespace](https://palantir.github.io/tslint/rules/no-trailing-whitespace/)
+### [No Trailing Whitespace](https://eslint.org/docs/rules/no-trailing-spaces)
 
-Wash your hands after using the bathroom, cover your mouth when you sneaze, and don't commit trailing whitespace for other peoples' text editors to remove bloating everyone's diffs.
+Wash your hands after using the bathroom, cover your mouth when you snenoeze, and don't commit trailing whitespace for other peoples' text editors to remove bloating everyone's diffs.
 
-### [No Unused Expressions](https://palantir.github.io/tslint/rules/no-unused-expression/)
+### [No Unused Expressions](https://eslint.org/docs/rules/no-unused-expressions)
 
 Unused expressions are most frequently typos.
 ```ts
@@ -422,11 +433,11 @@ const bar = () => {
 bar; // no-op probably meant to be a function invocation
 ```
 
-### [No Var Keyword](https://palantir.github.io/tslint/rules/no-var-keyword/)
+### [No Var Keyword](https://eslint.org/docs/rules/no-var)
 
 Use `let` or `const` for greater clarity.
 
-### [Object Literal Keys In Quotes Only When Necessary](https://palantir.github.io/tslint/rules/object-literal-key-quotes/)
+### [Object Literal Keys In Quotes Only When Necessary](https://eslint.org/docs/rules/quote-props)
 
 If possible, avoid quotation marks around object literal keys to make them easier to read (less superfluous characters to parse).
 ```ts
@@ -442,9 +453,9 @@ const foo = {
 };
 ```
 
-### [Use Object Literal Shorthand](https://palantir.github.io/tslint/rules/object-literal-shorthand/)
+### [Use Object Literal Shorthand](https://eslint.org/docs/rules/object-shorthand)
 
-Reducing clutter by removing duplicatation.
+Reducing clutter by removing duplication.
 ```ts
 const bar = true;
 const bazz = false;
@@ -462,7 +473,7 @@ const foo = {
 };
 ```
 
-### [Sort Object Keys](https://palantir.github.io/tslint/rules/object-literal-sort-keys/)
+### [Sort Object Keys](https://eslint.org/docs/rules/sort-keys)
 
 Sorted objects allow readers to visually binary search for keys, and helps prevent merge conflicts.
 ```ts
@@ -483,7 +494,7 @@ const foo = {
 };
 ```
 
-### [Block Formatting](https://palantir.github.io/tslint/rules/one-line/)
+### [Block Formatting](https://eslint.org/docs/rules/brace-style)
 The `catch/finally/else` statements should all be on the same line as their preceding and following block braces with a single space separating them. All blocks should be at least three lines.
 ```ts
 // BAD
@@ -542,7 +553,7 @@ try {
 }
 ```
 
-### [One Assignment Per Declaration Prefix](https://palantir.github.io/tslint/rules/one-variable-per-declaration/)
+### [One Assignment Per Declaration Prefix](https://eslint.org/docs/rules/one-var)
 
 Reduce diff clutter and avoid easy typos by not chaining assignments. Not enforced in `for` loops.
 ```ts
@@ -568,9 +579,10 @@ for(let a = 0, b = false, c; ... ; ...) {
 }
 ```
 
-### [Only Arrow Functions](https://palantir.github.io/tslint/rules/only-arrow-functions/)
+### [Only Arrow Functions](https://github.com/TristonJ/eslint-plugin-prefer-arrow)
+(After ESlint migration - this rule changed)
 
-Traditional annonymous functions don't bind lexical scope, so their behavior can be unexpected when referencing `this`.
+Traditional anonymous functions don't bind lexical scope, so their behavior can be unexpected when referencing `this`.
 ```ts
 // BAD
 const foo = {
@@ -582,12 +594,13 @@ const foo = {
 // GOOD
 const foo = {
   bar: () => {
-    return this; 'this' will always be the context in which 'foo' was defined
+    return this; // 'this' will always be the context in which 'foo' was defined
   }
 };
 ```
 
-### [Group And Alphabetize Imports](https://palantir.github.io/tslint/rules/ordered-imports/)
+### [Group And Alphabetize Imports](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/order.md)
+(After ESlint migration - rule changed)
 
 Within groups (delineated by blank lines) imports should be alphabetized, case-insensitive.
 ```ts
@@ -617,7 +630,7 @@ import { ... } from 'bar';
 import { ... } from 'foo';
 ```
 
-### [Use Const Whenever Possible]()
+### [Use Const Whenever Possible](https://eslint.org/docs/rules/prefer-const)
 
 Reap the semantic benefits of your declarations; when assigning a name to a value, if that value won't/can't/shouldn't change it should use a `const` declaration, not a `let` declaration.
 ```ts
@@ -634,7 +647,7 @@ const half = (value) => {
 };
 ```
 
-### [Prefer `for(... of ...)`](https://palantir.github.io/tslint/rules/prefer-for-of/)
+### [Prefer `for(... of ...)`](https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-for-of.md)
 
 When iterating through an array with a `for` loop, prefer the `for(... of ...)` construction over `for(let i =0; i < length; i++)` unless the index is used for something other than accessing items. `for...of` better conveys intent.
 ```ts
@@ -652,11 +665,11 @@ for(let item of arr) {
 }
 ```
 
-### [Single Quotation Marks For Strings](https://palantir.github.io/tslint/rules/quotemark/)
+### Single Quotation Marks For Strings - [Prettier](https://prettier.io/docs/en/options.html#quotes)
 
 Consistency is king, and single quotation marks are less clutter.
 
-### [Default Switch Cases](https://palantir.github.io/tslint/rules/switch-default/)
+### [Default Switch Cases](https://eslint.org/docs/rules/default-case)
 
 Always include a default case for switch statements either first (preferable) or last, not stuck between other cases.
 ```ts
@@ -679,7 +692,7 @@ switch(foo) {
 }
 ```
 
-### [Trailing Commas](https://palantir.github.io/tslint/rules/trailing-comma/)
+### Trailing Comma (Comma dangle) - [Prettier](https://prettier.io/docs/en/options.html#trailing-commas)
 
 Always include trailing commas for the last item in multi-line object and array literals. Never for single-line literals. Your diffs will thank you.
 ```ts
@@ -728,7 +741,7 @@ const shhh = ({ quiet, time }) => {
 }
 ```
 
-### [Triple Equals](https://palantir.github.io/tslint/rules/triple-equals/)
+### [Triple Equals](https://eslint.org/docs/rules/eqeqeq)
 
 [Implicit type conversion](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness#Loose_equality_using) is not your friend. Strict comparisons are easier to reason about, so be explicit with any conversions you plan to make before comparing.
 ```ts
@@ -746,7 +759,7 @@ if(Number(foo) === bar) {
 }
 ```
 
-### [Use `isNaN`](https://palantir.github.io/tslint/rules/use-isnan/)
+### [Use `isNaN`](https://eslint.org/docs/rules/use-isnan)
 
 `NaN !== NaN`, so comparing to `NaN` doesn't work.
 ```ts
@@ -761,18 +774,7 @@ if(isNaN(foo)) {
 }
 ```
 
-### [Camel- And Pascal-Case Variable Names Only](https://palantir.github.io/tslint/rules/variable-name/)
-
-No leading or trailing underscores or keywords (any, Number, number, String, string, Boolean, boolean, undefined) either.
-```ts
-// BAD
-const _pretending_im_private = false;
-
-// GOOD
-const notPretending = true;
-```
-
-### [Breathing Room Is Good](https://palantir.github.io/tslint/rules/whitespace/)
+### Breathing Room Is Good - [Prettier](https://prettier.io/docs/en/options.html#bracket-spacing)
 
 Whitespace between operands, separators, and assignment precedents and antecedents promotes legibility.
 ```ts
@@ -787,11 +789,7 @@ const bar = [1, 'oh god', 3, false];
 const foo = true;
 ```
 
-# Unenforced Rules
-
-These are either not `tslint` enforceable (i.e. no rule exists for them) or their rule implementation is buggy but the intent is still desireable.
-
-## [No Fall-Through On Switch Statements](https://palantir.github.io/tslint/rules/no-switch-case-fall-through/) ([buggy implementation](https://github.com/palantir/tslint/issues/785))
+### [No Fall-Through On Switch Statements](https://eslint.org/docs/rules/no-fallthrough)
 
 Reasoning about switch statements making use of fall-through cases that aren't empty is hard, and often a case falling through is accidental.
 ```ts

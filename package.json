@@ -1,21 +1,23 @@
 {
   "name": "ddts",
-  "version": "1.4.0",
-  "main": "tslint.json",
+  "version": "2.0.0",
+  "main": ".eslintrc.json",
   "scripts": {
-    "postinstall": "npm run compilerules; ./install-hooks",
-    "compilerules": "$(git rev-parse --show-toplevel)/node_modules/.bin/tsc ./rules/*.ts || true"
+    "postinstall": "./install-hooks"
   },
   "description": "A typescript style guide with teeth",
   "author": "Connor Harwood <charwood@dronedeploy.com>",
   "license": "MIT",
-  "devDependencies": {
-    "tslint": "^5.12.1"
-  },
-  "peerDependencies": {
-    "lint-staged": "^7.2.0",
-    "prettier": "^1.19.1",
-    "tslint": "^5.12.1",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "4.33.0",
+    "@typescript-eslint/parser": "4.33.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-ban": "^1.6.0",
+    "eslint-plugin-import": "2.25.4",
+    "eslint-plugin-prefer-arrow": "1.2.2",
+    "lint-staged": "^11.2.3",
+    "prettier": "^2.4.1",
     "typescript": ">=3.3.x <=4.0.x "
   }
 }

@@ -1,0 +1,137 @@
+{
+  "plugins": [
+    "eslint-plugin-import",
+    "eslint-plugin-prefer-arrow",
+    "@typescript-eslint",
+    "ban"
+  ],
+  "extends": ["prettier"],
+  "rules": {
+    "@typescript-eslint/member-ordering": [
+      "error",
+      {
+        "default": ["field", "constructor", "method"]
+      }
+    ],
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "variable",
+        "format": [
+          "camelCase", "UPPER_CASE", "PascalCase"
+        ]
+      },
+      {
+        "selector": "class",
+        "format": ["PascalCase"]
+      },
+      {
+        "selector": "interface",
+        "format": ["PascalCase"],
+        "custom": {
+          "regex": "^I[A-Z]",
+          "match": false
+        }
+      },
+      {
+        "selector": "property",
+        "format": ["camelCase", "UPPER_CASE", "PascalCase", "snake_case"],
+        "leadingUnderscore": "allow"
+      }
+    ],
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-inferrable-types": [
+      "error",
+      {
+        "ignoreParameters": true
+      }
+    ],
+    "@typescript-eslint/no-require-imports": "error",
+    "@typescript-eslint/no-unused-expressions": "error",
+    "@typescript-eslint/prefer-for-of": "error",
+    "ban/ban": [
+      "error",
+      { "name": "fdescribe", "message": "Banned method" },
+      { "name": "fit", "message": "Banned method" },
+      { "name": ["test","only"], "message": "Banned method" },
+      { "name": ["it","only"], "message": "Banned method" },
+      { "name": ["describe","only"], "message": "Banned method" },
+      { "name": "logOut", "message": "Banned method" }
+    ],
+    "brace-style": [
+      "error",
+      "1tbs"
+    ],
+    "curly": "error",
+    "default-case": "error",
+    "eol-last": "error",
+    "eqeqeq": "error",
+    "guard-for-in": "off",
+    "id-denylist": [
+      "error",
+      "any",
+      "Number",
+      "String",
+      "string",
+      "Boolean",
+      "boolean",
+      "Undefined",
+      "undefined"
+    ],
+    "id-match": "error",
+    "import/no-default-export": "error",
+    "import/order": "error",
+    "max-classes-per-file": [
+      "error",
+      3
+    ],
+    "new-parens": "error",
+    "no-bitwise": "error",
+    "no-caller": "error",
+    "no-cond-assign": "error",
+    "no-debugger": "error",
+    "no-eval": "error",
+    "no-multiple-empty-lines": [
+      "error",
+      {
+        "max": 3
+      }
+    ],
+    "no-multi-spaces": "error",
+    "no-new-wrappers": "error",
+    "no-trailing-spaces": "error",
+    "no-underscore-dangle": "off",
+    "no-unused-expressions": "error",
+    "no-unused-labels": "error",
+    "no-var": "error",
+    "object-shorthand": "error",
+    "one-var": [
+      "error",
+      "never"
+    ],
+    "prefer-arrow/prefer-arrow-functions": ["error", {
+      "allowStandaloneDeclarations": true
+    }],
+    "prefer-arrow-callback": [
+      "error",
+      {
+        "allowNamedFunctions": true
+      }
+    ],
+    "prefer-const": "error",
+    "quote-props": [
+      "error",
+      "as-needed"
+    ],
+    "space-infix-ops": "error",
+    "spaced-comment": [
+      "error",
+      "always",
+      {
+        "exceptions": ["*"]
+      }
+    ],
+    "sort-keys": "off",
+    "use-isnan": "error"
+  }
+}
