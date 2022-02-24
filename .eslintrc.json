@@ -58,13 +58,8 @@
       { "name": ["describe","only"], "message": "Banned method" },
       { "name": "logOut", "message": "Banned method" }
     ],
-    "brace-style": [
-      "error",
-      "1tbs"
-    ],
     "curly": "error",
     "default-case": "error",
-    "eol-last": "error",
     "eqeqeq": "error",
     "guard-for-in": "off",
     "id-denylist": [
@@ -99,7 +94,6 @@
     ],
     "no-multi-spaces": "error",
     "no-new-wrappers": "error",
-    "no-trailing-spaces": "error",
     "no-underscore-dangle": "off",
     "no-unused-expressions": "error",
     "no-unused-labels": "error",
@@ -119,11 +113,6 @@
       }
     ],
     "prefer-const": "error",
-    "quote-props": [
-      "error",
-      "as-needed"
-    ],
-    "space-infix-ops": "error",
     "spaced-comment": [
       "error",
       "always",
