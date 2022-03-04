@@ -1,6 +1,6 @@
 {
   "name": "ddts",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "main": ".eslintrc.json",
   "scripts": {
     "postinstall": "./install-hooks"
@@ -16,7 +16,7 @@
     "eslint-plugin-ban": "^1.6.0",
     "eslint-plugin-import": "2.25.4",
     "eslint-plugin-prefer-arrow": "1.2.2",
-    "lint-staged": "^12.3.4",
+    "lint-staged": "^11.2.6",
     "prettier": "^2.5.1",
     "typescript": ">=3.3.x <=4.2.x "
   }
