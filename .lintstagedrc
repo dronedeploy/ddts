@@ -1,7 +1,7 @@
 {
   "*.ts": [
-    "prettier --write --config ./node_modules/ddts/.prettierrc.yml",
     "eslint --fix",
+    "prettier --write --config ./node_modules/ddts/.prettierrc.yml",
     "sh ./node_modules/ddts/scripts/index.sh"
   ],
   "*.scss": [
