@@ -36,6 +36,10 @@
       {
         "selector": "property",
         "format": ["camelCase", "UPPER_CASE", "PascalCase", "snake_case"],
+        "filter": {
+          "regex": "^[-]",
+          "match": true
+        },
         "leadingUnderscore": "allow"
       }
     ],
@@ -120,6 +124,7 @@
         "exceptions": ["*"]
       }
     ],
+    "sort-imports": ["error", { "ignoreDeclarationSort": true }]
     "sort-keys": "off",
     "use-isnan": "error"
   }
