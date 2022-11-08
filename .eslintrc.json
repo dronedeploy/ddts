@@ -124,7 +124,7 @@
         "exceptions": ["*"]
       }
     ],
-    "sort-imports": ["error", { "ignoreDeclarationSort": true }],
+    "sort-imports": ["error", { "ignoreDeclarationSort": true, "ignoreCase": true }],
     "sort-keys": "off",
     "use-isnan": "error"
   }
