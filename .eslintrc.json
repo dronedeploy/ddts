@@ -40,7 +40,7 @@
           "regex": "^[-]",
           "match": true
         },
-        "leadingUnderscore": "allow"
+        "leadingUnderscore": "allowSingleOrDouble"
       }
     ],
     "@typescript-eslint/no-explicit-any": "off",
