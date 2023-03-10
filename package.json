@@ -1,6 +1,6 @@
 {
   "name": "ddts",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "main": ".eslintrc.json",
   "scripts": {
     "postinstall": "./install-hooks"
