@@ -1,6 +1,6 @@
 {
   "name": "ddts",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "main": ".eslintrc.json",
   "scripts": {
     "postinstall": "./install-hooks"
@@ -11,13 +11,13 @@
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
-    "eslint": "8.55.0",
+    "eslint": "8.57.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-ban": "1.6.0",
-    "eslint-plugin-import": "~2.26.0",
+    "eslint-plugin-import": "2.29.1",
     "eslint-plugin-prefer-arrow": "1.2.3",
-    "lint-staged": "15.2.0",
+    "lint-staged": "15.2.7",
     "prettier": "3.1.1",
-    "typescript": ">=3.3.x <=4.9.x "
+    "typescript": ">=3.3.x <=5.1.x "
   }
 }
