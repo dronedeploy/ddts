@@ -1,45 +1,47 @@
-#!/bin/sh
+#!/bin/bash
 
-# Ensures that utility files end with -utils.ts
+ACCEPTED_UTIL_EXTENSION="-utils.ts"
+BANNED_UTIL_EXTENSIONS=("-util.ts" ".util.ts" ".utils.ts" ".utility.ts" "-utility.ts" ".utilities.ts" "-utilities.ts")
+YELLOW="\033[0;33m"
+GREEN="\033[0;32m"
+NO_COLOR="\033[0m"
 
-accepted_util_extension="-utils.ts"
-banned_util_extensions=("-util.ts" ".util.ts" ".utils.ts" ".utility.ts" "-utility.ts" ".utilities.ts" "-utilities.ts")
-changed_files=$@
-invalid_files=""
-
-yellow="\033[0;33m"
-green="\033[0;32m"
-no_color="\033[0m"
-
-function check_for_banned_name() {
-    changed_file=$1
-    for i in "${banned_util_extensions[@]}"
-    do
-        banned_util_extension=$i
-        if [[ $changed_file == *$banned_util_extension ]]
-        then
-            invalid_files="$invalid_files $changed_file"
+check_for_banned_name() {
+    local file="$1"
+    for banned_extension in "${BANNED_UTIL_EXTENSIONS[@]}"; do
+        if [[ "$file" == *"$banned_extension" ]]; then
+            echo "$file"
+            return 0
         fi
     done
+    return 1
 }
 
-for changed_file in ${changed_files}
-do
-  check_for_banned_name $changed_file
-done
+main() {
+    if [ $# -eq 0 ]; then
+        echo "No files provided for checking."
+        exit 0
+    fi
 
-invalid_files_count=${#invalid_files}
+    local invalid_files=()
 
-if [ $invalid_files_count -ne 0 ]
-then   
-    printf "\nUtility files should end with $green\"$accepted_util_extension\"$no_color\n\n"
-    printf "Files to rename:\n================\n"
-    for invalid_file in ${invalid_files}
-    do
-        printf "$yellow$invalid_file\n"
+    for file in "$@"; do
+        if invalid_file=$(check_for_banned_name "$file"); then
+            invalid_files+=("$invalid_file")
+        fi
     done
-    printf "$no_color\n"
-    exit 1
-fi
 
-exit 0
+    if [ ${#invalid_files[@]} -ne 0 ]; then
+        printf "\nUtility files should end with %s\"%s\"%s\n\n" "$GREEN" "$ACCEPTED_UTIL_EXTENSION" "$NO_COLOR"
+        printf "Files to rename:\n================\n"
+        for file in "${invalid_files[@]}"; do
+            printf "%s%s%s\n" "$YELLOW" "$file" "$NO_COLOR"
+        done
+        printf "\n"
+        exit 1
+    fi
+
+    exit 0
+}
+
+main "$@"
